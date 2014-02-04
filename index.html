@@ -6,7 +6,53 @@
 <link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
 <script src="jquery-1.6.4.min.js" type="text/javascript"></script>
 <script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.validate.js"></script>
+<script src="atencionCliente.js"></script>
 <style type="text/css">
+body{
+	background: #d0d9d4;
+	padding-top: 10%;
+	text-align: center;
+}
+.boton{
+	/* estilos para la tipografia del botón*/
+	
+	color: #009;
+	font-family: sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+    padding: 15px 25px;
+	margin-right: 30px;
+	cursor: pointer;
+	border: 0;
+    border-radius: 30px;
+
+	/* propiedades para la animacion del boton */
+	
+	transition: all 0.20s linear;
+	-webkit-transition: all 0.20s linear;
+	-moz-transition: all 0.20s linear;
+	position: relative;
+	bottom: 0;
+}
+
+.rojo{
+	/* Estilos para el fondo del boton */
+	background: #009;
+	box-shadow: 0px 5px 0 #8F1502;			
+}
+.boton:active{
+	/* Posicion del boton al clickearlo */
+	bottom: -5px;
+}
+
+.rojo:active{
+	/* Sombra del boton al clickearlo */
+	box-shadow:0 0 0 #9a1604, inset 0 0 5px #000000;
+	background: #009;			
+	
+}
 .fondo{
 	background:#009;
 }
@@ -15,9 +61,9 @@
 
 <div data-role="page" id="page">
 	<div data-role="header" class="fondo">
-		<h1>Bienvenidos a </h1>
-        <h1>Telmex</h1>
-        <h1>de Cd. Altamirano</h1>
+		<h3>Bienvenidos a </h3>
+        <h3>Telmex</h3>
+        <h3>de Cd. Altamirano</h3>
 	</div>
 	<div data-role="content">	
 		<ul data-role="listview">
@@ -46,17 +92,45 @@
         <li><a href="ipads.html">Ipads</a></li>
         </ul>		
 	</div>
-	<div data-role="footer" class="fondo">
-		<h4><a href="#page">Regresar</a></h4>
-	</div>
+
+		<h4><a href="#page" class="boton rojo">Regresar</a></h4>
+
 </div>
 
-<div data-role="page" id="page3" class="fondo">
-	<div data-role="header">
+<div data-role="page" id="page3">
+	<div data-role="header" class="fondo">
 		<h1>Reportes</h1>
 	</div>
 	<div data-role="content">	
-		Contenido		
+    <form method="post" id="formid">
+        <table width="300px">
+        <tr>
+        <td width="106">Nombre:*</td><td width="222"><input type="text" name="nombre" id="nombre" class="frm_input_cuadrado" size="20" maxlength="20"/><br /></td>
+		</tr>
+		<tr>
+		<td>Apellidos:*</td><td><input type="text" name="apellido" id="apellido" class="frm_input_cuadrado" size="20" maxlength="50"/><br /></td>
+		</tr>
+		<tr>
+		<td class="txt_general_azul_bold">Email:<span class="error">&nbsp;&nbsp;*</span></td><td><input type="text" name="email" id="email" class="frm_input_cuadrado" size="20" maxlength="25"/><br /></td>
+		</tr>
+		<tr>
+		<td>Tel&eacute;fono:*</td><td><input type="text" name="telefono" id="telefono" class="frm_input_cuadrado" size="20" maxlength="15"/></td>
+		</tr>
+		<tr>
+		<td>Poblaci&oacute;n:*</td><td><input type="text" name="poblacion" id="poblacion" class="frm_input_cuadrado" size="20" maxlength="30"/></td>
+		</tr>
+		<tr>
+		<td>Descripci&oacute;n del problema:*</td><td></td>
+		</tr>
+		<tr>
+		<td colspan="2" align="center"><textarea id="mensaje" name="mensaje" rows="5" cols="45" class="frm_input_cuadrado" maxlength="500"></textarea><br /></td>
+		</tr>
+		<tr>
+		<td class="error" colspan="2">Los campos marcados con una (*) son obligatorios.</td><td width="6"></td>
+		</tr>
+		<tr><td colspan="2" align="center"><input type="submit" value="Enviar" class="sprites_gen" id="btn_accesos_1"/></td></tr>
+		</table>
+        </form>		
 	</div>
 	<div data-role="footer" class="fondo">
 		<h4><a href="#page">Regresar</a></h4>
