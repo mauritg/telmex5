@@ -9,6 +9,90 @@
 <script src="jquery-1.9.1.min.js"></script>
 <script src="jquery.validate.js"></script>
 <script src="atencionCliente.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+                $("#boton").click(function(event) {
+                    $("#capa").load('http://localhost/tel/computadoras.php',{a: formulario.a.value}, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Error!, algo ha sucedido: ";
+                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        });
+                });
+            });    
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+                $("#boton2").click(function(event) {
+                    $("#capa").load('http://localhost/minis.php',{a: formulario.a.value}, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Error!, algo ha sucedido: ";
+                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        });
+                });
+            });    
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+                $("#boton").click(function(event) {
+                    $("#capa").load('http://localhost/televisores.php',{a: formulario.a.value}, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Error!, algo ha sucedido: ";
+                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        });
+                });
+            });    
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+                $("#boton").click(function(event) {
+                    $("#capa").load('http://localhost/tablets.php',{a: formulario.a.value}, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Error!, algo ha sucedido: ";
+                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        });
+                });
+            });    
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+                $("#boton").click(function(event) {
+                    $("#capa").load('http://localhost/telefonos.php',{a: formulario.a.value}, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Error!, algo ha sucedido: ";
+                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        });
+                });
+            });    
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+                $("#boton").click(function(event) {
+                    $("#capa").load('http://localhost/accesorios.php',{a: formulario.a.value}, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Error!, algo ha sucedido: ";
+                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        });
+                });
+            });    
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+                $("#boton").click(function(event) {
+                    $("#capa").load('http://localhost/ipads.php',{a: formulario.a.value}, function(response, status, xhr) {
+                          if (status == "error") {
+                            var msg = "Error!, algo ha sucedido: ";
+                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                          }
+                        });
+                });
+            });    
+</script>
 <style type="text/css">
 body{
 	background: #d0d9d4;
@@ -82,14 +166,28 @@ body{
 		<h1>Productos</h1>
 	</div>
 	<div data-role="content">
-    	<ul data-role="listview">	
-        <li><a href="computadoras.html">Computadoras</a></li>
-        <li><a href="minis.html">Minis</a></li>
-        <li><a href="televisores.html">Televisores</a></li>
-        <li><a href="tablets.html">Tablets</a></li>
-        <li><a href="telefonos.html">Teléfonos</a></li>
-        <li><a href="accesorios.html">Accesorios</a></li>
-        <li><a href="ipads.html">Ipads</a></li>
+    	<ul data-role="listview">
+        <form name="formulario" id="formulario">	
+        <input name="boton" type="button" id="boton" value="Computadoras">
+        </form>
+        <form name="formulario2" id="formulario2">	
+        <input name="boton2" type="button" id="boton2" value="Minis">
+        </form>
+        <form name="formulario3" id="formulario3">	
+        <input name="boton3" type="button" id="boton3" value="Televisores">
+        </form>
+        <form name="formulario4" id="formulario4">	
+        <input name="boton4" type="button" id="boton4" value="Tablets">
+        </form>
+        <form name="formulario5" id="formulario5">	
+        <input name="boton5" type="button" id="boton5" value="Telefonos">
+        </form>
+        <form name="formulario6" id="formulario6">	
+        <input name="boton6" type="button" id="boton6" value="Accesorios">
+        </form>
+        <form name="formulario7" id="formulario7">	
+        <input name="boton7" type="button" id="boton7" value="Ipads">
+        </form>
         </ul>		
 	</div>
 
