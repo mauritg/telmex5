@@ -9,84 +9,40 @@
 <script src="jquery-1.9.1.min.js"></script>
 <script src="jquery.validate.js"></script>
 <script src="atencionCliente.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	$("#boton").click(function(event) {
-		$("#capa").load('htpp://localhost/tel/computadoras.php');
-		});
-	});    
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            alert('Connection type: ' + states[networkState]);
+        }
+
 </script>
 <script type="text/javascript">
-$(document).ready(function() {
-                $("#boton2").click(function(event) {
-                    $("#capa").load('http://localhost/minis.php',{a: formulario.a.value}, function(response, status, xhr) {
+ $(document).ready(function() {
+                $("#mostrar").click(function(event) {
+                    $("#datos-bd").load('http://localhost/test/consulta.php',{}, function(response, status, xhr) {
                           if (status == "error") {
-                            var msg = "Error!, algo ha sucedido: ";
-                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
+                            var msg = "<strong>¡Error!</strong> Por favor verifica tu conexión a internet";
+                            $("#capaerror").html('<div>' + msg + '</div>');
                           }
                         });
                 });
-            });    
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-                $("#boton3").click(function(event) {
-                    $("#capa").load('http://localhost/televisores.php',{a: formulario.a.value}, function(response, status, xhr) {
-                          if (status == "error") {
-                            var msg = "Error!, algo ha sucedido: ";
-                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
-                          }
-                        });
-                });
-            });    
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-                $("#boton4").click(function(event) {
-                    $("#capa").load('http://localhost/tablets.php',{a: formulario.a.value}, function(response, status, xhr) {
-                          if (status == "error") {
-                            var msg = "Error!, algo ha sucedido: ";
-                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
-                          }
-                        });
-                });
-            });    
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-                $("#boton5").click(function(event) {
-                    $("#capa").load('http://localhost/telefonos.php',{a: formulario.a.value}, function(response, status, xhr) {
-                          if (status == "error") {
-                            var msg = "Error!, algo ha sucedido: ";
-                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
-                          }
-                        });
-                });
-            });    
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-                $("#boton6").click(function(event) {
-                    $("#capa").load('http://localhost/accesorios.php',{a: formulario.a.value}, function(response, status, xhr) {
-                          if (status == "error") {
-                            var msg = "Error!, algo ha sucedido: ";
-                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
-                          }
-                        });
-                });
-            });    
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-                $("#boton7").click(function(event) {
-                    $("#capa").load('http://localhost/ipads.php',{a: formulario.a.value}, function(response, status, xhr) {
-                          if (status == "error") {
-                            var msg = "Error!, algo ha sucedido: ";
-                            $("#capa").html(msg + xhr.status + " " + xhr.statusText);
-                          }
-                        });
-                });
-            });    
+            });  
 </script>
 <style type="text/css">
 body{
@@ -161,28 +117,14 @@ body{
 		<h1>Productos</h1>
 	</div>
 	<div data-role="content">
-    	<ul data-role="listview">
-        <form name="formulario" id="formulario">	
-        <input name="boton" type="button" id="boton" value="Computadoras">
-        </form>
-        <form name="formulario2" id="formulario2">	
-        <input name="boton2" type="button" id="boton2" value="Minis">
-        </form>
-        <form name="formulario3" id="formulario3">	
-        <input name="boton3" type="button" id="boton3" value="Televisores">
-        </form>
-        <form name="formulario4" id="formulario4">	
-        <input name="boton4" type="button" id="boton4" value="Tablets">
-        </form>
-        <form name="formulario5" id="formulario5">	
-        <input name="boton5" type="button" id="boton5" value="Telefonos">
-        </form>
-        <form name="formulario6" id="formulario6">	
-        <input name="boton6" type="button" id="boton6" value="Accesorios">
-        </form>
-        <form name="formulario7" id="formulario7">	
-        <input name="boton7" type="button" id="boton7" value="Ipads">
-        </form>
+    	<ul data-role="listview">	
+        <li><a href="computadoras.html">Computadoras</a></li>
+        <li><a href="minis.html">Minis</a></li>
+        <li><a href="televisores.html">Televisores</a></li>
+        <li><a href="tablets.html">Tablets</a></li>
+        <li><a href="telefonos.html">Teléfonos</a></li>
+        <li><a href="accesorios.html">Accesorios</a></li>
+        <li><a href="ipads.html">Ipads</a></li>
         </ul>		
 	</div>
 
@@ -204,7 +146,7 @@ body{
 		<td>Apellidos:*</td><td><input type="text" name="apellido" id="apellido" class="frm_input_cuadrado" size="20" maxlength="50"/><br /></td>
 		</tr>
 		<tr>
-		<td class="txt_general_azul_bold">Email:<span class="error">&nbsp;&nbsp;*</span></td><td><input type="text" name="email" id="email" class="frm_input_cuadrado" size="20" maxlength="25"/><br /></td>
+		<td>Email:</td><td><input type="text" name="email" id="email" class="frm_input_cuadrado" size="20" maxlength="25"/><br /></td>
 		</tr>
 		<tr>
 		<td>Tel&eacute;fono:*</td><td><input type="text" name="telefono" id="telefono" class="frm_input_cuadrado" size="20" maxlength="15"/></td>
@@ -230,12 +172,37 @@ body{
 	</div>
 </div>
 
-<div data-role="page" id="page4" class="fondo">
-	<div data-role="header">
+<div data-role="page" id="page4">
+	<div data-role="header" class="fondo">
 		<h1>Comentario</h1>
 	</div>
 	<div data-role="content">	
-		Contenido		
+    <form method="post" id="formid2">
+        <table width="300px">
+        <tr>
+        <td width="106">Nombre:*</td><td width="222"><input type="text" name="nombre" id="nombre" class="frm_input_cuadrado" size="20" maxlength="20"/><br /></td>
+		</tr>
+		<tr>
+		<td>Apellidos:*</td><td><input type="text" name="apellido" id="apellido" class="frm_input_cuadrado" size="20" maxlength="50"/><br /></td>
+		</tr>
+		<tr>
+		<td>Tel&eacute;fono:*</td><td><input type="text" name="telefono" id="telefono" class="frm_input_cuadrado" size="20" maxlength="15"/></td>
+		</tr>
+		<tr>
+		<td>Poblaci&oacute;n:*</td><td><input type="text" name="poblacion" id="poblacion" class="frm_input_cuadrado" size="20" maxlength="30"/></td>
+		</tr>
+		<tr>
+		<td>Comentario o Sugerencia:*</td><td></td>
+		</tr>
+		<tr>
+		<td colspan="2" align="center"><textarea id="mensaje" name="mensaje" rows="5" cols="45" class="frm_input_cuadrado" maxlength="500"></textarea><br /></td>
+		</tr>
+		<tr>
+		<td class="error" colspan="2">Los campos marcados con una (*) son obligatorios.</td><td width="6"></td>
+		</tr>
+		<tr><td colspan="2" align="center"><input type="submit" value="Enviar" class="sprites_gen" id="btn_accesos_1"/></td></tr>
+		</table>
+        </form>
 	</div>
 	<div data-role="footer" class="fondo">
 		<h4><a href="#page">Regresar</a></h4>
@@ -246,14 +213,30 @@ body{
 
 <div data-role="page" id="compu1">
 	<div data-role="header" class="fondo">
-		<h1>AIO COMPAQ 18-2003LA</h1>
+		<h1>Desktop DELL</h1>
 	</div>
 	<div data-role="content">	
-		<img src="images/compus/AIO COMPAQ 18-203LA.jpg">
-        <h4>Procesador: AMD E1-1200</h4>
-        <h4>Disco Duro: 500 GB</h4>
-        <h4>Memoria RAM: 2 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 8</h4>		
+		<img src="images/compus/dell/dell SKU_1041096.jpg">
+   		<h4>Características</h4>        
+		<h4>Sistema Operativo: Windows 8</h4>
+		<h4>Procesador Celeron G470</h4>
+		<h4>Memoria RAM 4GB</h4>
+		<h4>Disco Duro 500 GB</h4>
+        <h4>Pantalla 20"</h4>
+        <h4>Bluetooth</h4>
+        <h4>Cámara Web</h4>
+        <h4>2 Puertos USB</h4>
+        <h4>Lector de Tarjetas SD</h4>
+        <h4>PRECIO CLIENTE INFINITUM</h4>
+		<h4>Pago de contado:	$ 7,872</h4>
+		<h4>Precio regular:	 $ 8,502</h4>
+		<h4>12 meses:	$ 709</h4>
+		<h4>24 meses:	$ 413</h4>
+		<h4>36 meses:	$ 308</h4>
+		<h4>48 meses:	$ 247</h4>
+        <h4>NOTA: Los pagos mensuales serán cargados a tu Recibo TELMEX</h4>
+<h4>Precios expresados en Moneda Nacional con IVA incluido.</h4>
+<h4>Precios sujetos a cambios sin previo aviso.</h4>
 	</div>
 	<div data-role="footer" class="fondo">
     <h4><a href="computadoras.html">Regresar</a></h4>
@@ -262,14 +245,29 @@ body{
 
 <div data-role="page" id="compu2">
 	<div data-role="header" class="fondo">
-		<h1>AIO LANIX 215 S12</h1>
+		<h1>Desktop HP</h1>
 	</div>
 	<div data-role="content">	
-		<img src="images/compus/IOA LANIX.png">
-        <h4>Procesador: INTEL CELERON B720</h4>
-        <h4>Disco Duro: 500 GB</h4>
-        <h4>Memoria RAM: 2 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 7 STARTER</h4>		
+		<img src="images/compus/hp/hp sku_1041192.jpg">
+		<h4>Características</h4>        
+		<h4>Sistema Operativo: Windows 8</h4>
+		<h4>Procesador Core i5 3330S Tercera Generación</h4>
+		<h4>Memoria RAM 8GB</h4>
+		<h4>Disco Duro 2 TB</h4>
+        <h4>Pantalla 23"</h4>
+        <h4>Quemador de DVD</h4>        
+        <h4>Cámara Web y Microfono Integrado</h4>
+        <h4>Bluetooth</h4>
+        <h4>PRECIO CLIENTE INFINITUM</h4>
+		<h4>Pago de contado:	$ 16,499</h4>
+		<h4>Precio regular:	 $ 18,224</h4>
+		<h4>12 meses:	$ 1,519</h4>
+		<h4>24 meses:	$ 879</h4>
+		<h4>36 meses:	$ 659</h4>
+		<h4>48 meses:	$ 526</h4>
+        <h4>NOTA: Los pagos mensuales serán cargados a tu Recibo TELMEX</h4>
+<h4>Precios expresados en Moneda Nacional con IVA incluido.</h4>
+<h4>Precios sujetos a cambios sin previo aviso.</h4>
 	</div>
 	<div data-role="footer" class="fondo">
     <h4><a href="computadoras.html">Regresar</a></h4>
@@ -278,14 +276,30 @@ body{
 
 <div data-role="page" id="compu3">
 	<div data-role="header" class="fondo">
-		<h1>LAPTOP ACER V5-471</h1>
+		<h1>Desktop LENOVO</h1>
 	</div>
 	<div data-role="content">	
-		<img src="images/compus/acer-aspire-m5-touch-620-wide.jpg">
-        <h4>Procesador: INTEL CORE i3 DE TERCERA GENERACION</h4>
-        <h4>Disco Duro: 500 GB</h4>
-        <h4>Memoria RAM: 6 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 8</h4>
+		<img src="images/compus/lenovo/lenovo sku_1041142.jpg">
+		<h4>Características</h4>
+		<h4>Sistema Operativo: Windows 8</h4>
+		<h4>Procesador AMD A4</h4>
+		<h4>Memoria RAM 8GB</h4>
+		<h4>Disco Duro 1 TB</h4>
+        <h4>Pantalla 20"</h4>
+        <h4>Quemador de DVD</h4>
+        <h4>Cámara Web</h4>
+        <h4>4 Puertos USB</h4>
+        <h4>PRECIO CLIENTE INFINITUM</h4>
+		<h4>Pago de contado:	$ 8,949</h4>
+		<h4>Precio regular:	 $ 9,665</h4>
+		<h4>12 meses:	$ 805</h4>
+		<h4>24 meses:	$ 469</h4>
+		<h4>36 meses:	$ 350</h4>
+		<h4>48 meses:	$ 281</h4>
+		
+        <h4>NOTA: Los pagos mensuales serán cargados a tu Recibo TELMEX</h4>
+<h4>Precios expresados en Moneda Nacional con IVA incluido.</h4>
+<h4>Precios sujetos a cambios sin previo aviso.</h4>
 	</div>
 	<div data-role="footer" class="fondo">
     <h4><a href="computadoras.html">Regresar</a></h4>
@@ -294,94 +308,29 @@ body{
 
 <div data-role="page" id="compu4">
 	<div data-role="header" class="fondo">
-		<h1>ASUS K53TA-MT2 N</h1>
+		<h1>Desktop LANIX</h1>
 	</div>
 	<div data-role="content">	
-		<img src="images/compus/asus-k53ta-me1~7652192.jpg">
-        <h4>Procesador: INTEL ATOM N570</h4>
-        <h4>Disco Duro: 320 GB</h4>
-        <h4>Memoria RAM: 2 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 7 STARTER</h4>
-	</div>
-	<div data-role="footer" class="fondo">
-    <h4><a href="computadoras.html">Regresar</a></h4>
-	</div>
-</div>
-
-<div data-role="page" id="compu5">
-	<div data-role="header" class="fondo">
-		<h1>DELL INSPIRON 14</h1>
-	</div>
-	<div data-role="content">	
-		<img src="images/compus/inspiron 14.png">
-        <h4>Procesador: INTEL CORE i5 DE TERCERA GENERACION</h4>
-        <h4>Disco Duro: 750 GB</h4>
-        <h4>Memoria RAM: 6 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 8</h4>
-	</div>
-	<div data-role="footer" class="fondo">
-    <h4><a href="computadoras.html">Regresar</a></h4>
-	</div>
-</div>
-
-<div data-role="page" id="compu6">
-	<div data-role="header" class="fondo">
-		<h1>DELL INSPIRON 15 R</h1>
-	</div>
-	<div data-role="content">	
-		<img src="images/compus/INPIRON 15 R.jpg">	
-        <h4>Procesador: INTEL CORE i7 DE TERCERA GENERACION</h4>
-        <h4>Disco Duro: 1 TB</h4>
-        <h4>Memoria RAM: 8 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 8</h4>
-	</div>
-	<div data-role="footer" class="fondo">
-    <h4><a href="computadoras.html">Regresar</a></h4>
-	</div>
-</div>
-
-<div data-role="page" id="compu7">
-	<div data-role="header" class="fondo">
-		<h1>LAPTOP HP G4-2268</h1>
-	</div>
-	<div data-role="content">	
-		<img src="images/compus/hp g4.jpg">
-        <h4>Procesador: INTEL CORE i3 DE TERCERA GENERACION</h4>
-        <h4>Disco Duro: 750 GB</h4>
-        <h4>Memoria RAM: 4 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 8</h4>
-	</div>
-	<div data-role="footer" class="fondo">
-    <h4><a href="computadoras.html">Regresar</a></h4>
-	</div>
-</div>
-
-<div data-role="page" id="compu8">
-	<div data-role="header" class="fondo">
-		<h1>LAPTOP HP M4-1050</h1>
-	</div>
-	<div data-role="content">	
-		<img src="images/compus/HP M4.png">	
-        <h4>Procesador: INTEL CORE i5-3210m</h4>
-        <h4>Disco Duro: 750 GB</h4>
-        <h4>Memoria RAM: 6 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 8</h4>
-	</div>
-	<div data-role="footer" class="fondo">
-    <h4><a href="computadoras.html">Regresar</a></h4>
-	</div>
-</div>
-
-<div data-role="page" id="compu9">
-	<div data-role="header" class="fondo">
-		<h1>LAPTOP SAMSUMG NP355V4C</h1>
-	</div>
-	<div data-role="content">	
-		<img src="images/compus/SAMSUMG.jpg">
-        <h4>Procesador: AMD A6</h4>
-        <h4>Disco Duro: 500 GB</h4>
-        <h4>Memoria RAM: 4 GB</h4>
-        <h4>Sistema Operativo: WINDOWS 7 HOME BASIC</h4>
+		<img src="images/compus/lanix/lanis sku_1041095.jpg">
+   		<h4>Características</h4>
+		<h4>Sistema Operativo: Windows 8</h4>
+		<h4>Procesador AMD E 350</h4>
+		<h4>Memoria RAM 2GB</h4>
+		<h4>Disco Duro 500 GB</h4>
+        <h4>Pantalla 18.5"</h4>
+        <h4>Quemador de DVD</h4>
+        <h4>4 Puertos USB Traseros + 2 Frontales</h4>
+        <h4>PRECIO CLIENTE INFINITUM</h4>
+		<h4>Pago de contado:	$ 6,029</h4>
+		<h4>Precio regular:	 $ 6,511</h4>
+		<h4>12 meses:	$ 543</h4>
+		<h4>24 meses:	$ 316</h4>
+		<h4>36 meses:	$ 236</h4>
+		<h4>48 meses:	$ 189</h4>
+		
+        <h4>NOTA: Los pagos mensuales serán cargados a tu Recibo TELMEX</h4>
+<h4>Precios expresados en Moneda Nacional con IVA incluido.</h4>
+<h4>Precios sujetos a cambios sin previo aviso.</h4>
 	</div>
 	<div data-role="footer" class="fondo">
     <h4><a href="computadoras.html">Regresar</a></h4>
